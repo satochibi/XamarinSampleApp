@@ -1,11 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SampleApp"
              x:Class="SampleApp.MainPage">
+    <!--1つめのタブ-->
+    <TabbedPage.Children>
+        <ContentPage Title="タブ1" Padding="20">
+            <StackLayout Padding="20" Spacing="15" BackgroundColor="White">
+                
+                <!--ラベルの使用例1-->
+                <Label Text="HelloSampleApp!" BackgroundColor="Aqua" TextColor="Black" />
+                
+                <!--ラベルの使用例2-->
+                <Label>
+                    <Label.BackgroundColor>
+                        Aqua
+                    </Label.BackgroundColor>
+                    <Label.TextColor>
+                        Black
+                    </Label.TextColor>
+                    <Label.Text>
+                        Hello, SampleApp!
+                    </Label.Text>
+                </Label>
+                
+                <!--ボタンの使用例-->
+                <Button x:Name="SampleButton1" Text="ボタン1" BackgroundColor="Blue" TextColor="Black"/>
+                <Button x:Name="SampleButton2" Text="ボタン2" BackgroundColor="Red" TextColor="Black" />
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+            </StackLayout>
+        </ContentPage>
 
-</ContentPage>
+        <!--2つめのタブ-->        <ContentPage Title="タブ2" Padding="20">            <Grid Padding="10,30,10,10">                <Grid.RowDefinitions>                    <RowDefinition Height="Auto"/>                    <RowDefinition Height="Auto"/>                    <RowDefinition Height="Auto"/>                </Grid.RowDefinitions>                <Grid.ColumnDefinitions>                    <ColumnDefinition Width="Auto"/>                    <ColumnDefinition Width="*"/>                </Grid.ColumnDefinitions>                <Label Text="アカウント" Grid.Row="0" Grid.Column="0"/>                <!--Entryの使用例1-->                <Entry x:Name="entryAccount" Placeholder="enter Account..." Grid.Row="0" Grid.Column="1"/>                <Label Text="パスワード" Grid.Row="1" Grid.Column="0"/>                <!--Entryの使用例2-->                <Entry x:Name="entryPassword" IsPassword="True" Placeholder="enter Password..." Grid.Row="1" Grid.Column="1"/>                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2">                    <Button x:Name="Authentication" Text="認証" Margin="0,0,10,0" HorizontalOptions="CenterAndExpand"/>                    <Button x:Name="Clear" Text="クリア" HorizontalOptions="Center"/>                </StackLayout>            </Grid>        </ContentPage>        <!--3つめのタブ-->        <ContentPage Title="タブ3" Padding="20">            <StackLayout Padding="20" Spacing="15" BackgroundColor="White">                <!--SearchBarの使用例-->                <SearchBar x:Name="searchBar" Placeholder="Keyword" CancelButtonColor="Red" TextColor="Black"/>                <Label Text="検索結果:" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>                <Label x:Name="lblResult" TextColor="Black"/>            </StackLayout>        </ContentPage>                        <!--4つめのタブ-->
+        <ContentPage Title="タブ4" Padding="20">
+            <StackLayout Padding="20" Spacing="15" BackgroundColor="White">
+                <Label Text="OnPlatform Color Check!">
+                    <Label.TextColor>
+                        <!--OnPlatformの使用例1-->
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>
+                                Blue
+                            </OnPlatform.iOS>
+                            <OnPlatform.Android>
+                                Red
+                            </OnPlatform.Android>
+                            <OnPlatform.WinPhone>
+                                Yellow
+                            </OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </Label.TextColor>
+                </Label>
+
+
+                <Label TextColor="Black">
+                    <Label.Text>
+                        <!--OnPlatformの使用例2-->
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>
+                                iOS!
+                            </OnPlatform.iOS>
+                            <OnPlatform.Android>
+                                Android!
+                            </OnPlatform.Android>
+                            <OnPlatform.WinPhone>
+                                Windows!
+                            </OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </Label.Text>
+                </Label>
+                
+            </StackLayout>
+        </ContentPage>
+        
+        
+        
+    </TabbedPage.Children>
+
+</TabbedPage>
